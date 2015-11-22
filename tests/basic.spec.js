@@ -73,6 +73,27 @@ const App4 = React.createClass({
   },
 });
 
+const App5 = React.createClass({
+  getInitialState() {
+    return {
+      values: [1, 2, 3, 4, 5, 6],
+    };
+  },
+  update() {
+    this.setState({ values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] });
+  },
+  render() {
+    return (
+      <div>
+        <button type="button" onClick={this.update}>click</button>
+        <ul>
+          {this.state.values.map(value => <Cell key={value} value={value} condition={value % 2 === 0} />)}
+        </ul>
+      </div>
+    );
+  },
+});
+
 
 describe('App', () => {
   it('should render only 3 items', () => {
@@ -94,5 +115,14 @@ describe('App', () => {
     const app = ReactTestUtils.renderIntoDocument(<App4 />);
     const li = ReactTestUtils.scryRenderedDOMComponentsWithTag(app, 'li');
     expect(li.length).to.be.equal(0);
+  });
+  it('should support state update', () => {
+    const app = ReactTestUtils.renderIntoDocument(<App5 />);
+    const li = ReactTestUtils.scryRenderedDOMComponentsWithTag(app, 'li');
+    const button = ReactTestUtils.findRenderedDOMComponentWithTag(app, 'button');
+    expect(li.length).to.be.equal(3);
+    ReactTestUtils.Simulate.click(button);
+    const lis = ReactTestUtils.scryRenderedDOMComponentsWithTag(app, 'li');
+    expect(lis.length).to.be.equal(7);
   });
 });
