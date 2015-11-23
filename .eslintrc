@@ -5,6 +5,9 @@
     "es6": true,
     "node": true
   },
+  "ecmaFeatures": {
+    "experimentalObjectRestSpread": true
+  },
   "rules": {
     "react/prop-types": 0,
     "no-else-return": 0
