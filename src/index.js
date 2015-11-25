@@ -71,3 +71,5 @@ export default function enhanceWithConditionalRendering(Component) {
     },
   });
 }
+
+export const withConditionalRendering = enhanceWithConditionalRendering;

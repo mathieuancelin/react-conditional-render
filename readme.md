@@ -33,7 +33,7 @@ You can compose this component with `react-conditional-render` to use conditiona
 
 ```javascript
 import React from 'react';
-import EnhanceWithConditionalRendering from 'react-conditional-render';
+import { withConditionalRendering } from 'react-conditional-render';
 
 const UserProfile = React.createClass({
   displayName: 'UserProfile',
@@ -48,7 +48,7 @@ const UserProfile = React.createClass({
   },
 });
 
-export default EnhanceWithConditionalRendering(UserProfile);
+export default withConditionalRendering(UserProfile);
 ```
 
 Then you can use this component in other component and use the `condition` property to render the `UserProfile` only if
