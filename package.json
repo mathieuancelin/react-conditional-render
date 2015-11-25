@@ -6,7 +6,9 @@
   "jsnext:main": "lib/index.js",
   "scripts": {
     "lint": "eslint src tests",
+    "lint-watch": "esw -w src tests",
     "test": "NODE_ENV=test mocha --compilers js:babel-core/register tests/index.js",
+    "test-watch": "NODE_ENV=test mocha --watch --compilers js:babel-core/register tests/index.js",
     "start": "NODE_ENV=dev webpack-dev-server -d --colors --hot --inline --progress",
     "bundle": "rm -rf ./dist && NODE_ENV=production webpack -p --colors --progress",
     "lib": "rm -rf ./lib && babel src --out-dir lib",
@@ -34,6 +36,7 @@
     "eslint": "^1.10.1",
     "eslint-config-airbnb": "^1.0.0",
     "eslint-plugin-react": "^3.10.0",
+    "eslint-watch": "^2.1.4",
     "jsdom": "^7.0.2",
     "mocha": "^2.3.4",
     "react-addons-test-utils": "^0.14.3",

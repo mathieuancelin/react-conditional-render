@@ -119,6 +119,7 @@ describe('App', () => {
   });
 
   it('should support state update', () => {
+    document.body.innerHTML = '';
     const App = React.createClass({
       getInitialState() {
         return {
@@ -149,6 +150,7 @@ describe('App', () => {
   });
 
   it('should support state update with pure HTML wrapping', () => {
+    document.body.innerHTML = '';
     const App = React.createClass({
       getInitialState() {
         return {
