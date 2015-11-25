@@ -75,5 +75,36 @@ export default React.createClass({
 });
 ```
 
+You can also just wrap some HTML elements with the `Wrapper` component
+
+```javascript
+import React from 'react';
+import { Conditional } from 'react-conditional-render';
+
+export default React.createClass({
+  getInitialState() {
+    return {
+      users: UserStore.all()
+    };
+  },
+  render() {
+    return (
+      <ul>
+        {this.state.users.map(user => (
+          <Conditional key={user.id} condition={user.age > 42}>
+            <li>
+              <div>Name : {user.name}</div>
+              <div>Age : {user.age}</div>
+              <div>Email : {user.email}</div>
+            </li>
+          </Conditional>
+        ))}
+      </ul>
+    );
+  },
+});
+```
+
+
 [1]: https://api.travis-ci.org/mathieuancelin/react-conditional-render.svg
 [2]: https://api.travis-ci.org/mathieuancelin/react-conditional-render
