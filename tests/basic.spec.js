@@ -44,13 +44,11 @@ describe('App', () => {
       render() {
         return (
           <ul>
-            {this.props.values.map(value => {
-              return (
-                <Conditional key={value} condition={value % 2 === 0}>
-                  <li id="cell-{value}">{value}</li>
-                </Conditional>
-              );
-            })}
+            {this.props.values.map(value => (
+              <Conditional key={value} condition={value % 2 === 0}>
+                <li id="cell-{value}">{value}</li>
+              </Conditional>
+            ))}
           </ul>
         );
       },
@@ -136,6 +134,40 @@ describe('App', () => {
             <button type="button" onClick={this.update}>click</button>
             <ul>
               {this.state.values.map(value => <Cell key={value} value={value} condition={value % 2 === 0} />)}
+            </ul>
+          </div>
+        );
+      },
+    });
+    const app = ReactTestUtils.renderIntoDocument(<App />);
+    const li = ReactTestUtils.scryRenderedDOMComponentsWithTag(app, 'li');
+    const button = ReactTestUtils.findRenderedDOMComponentWithTag(app, 'button');
+    expect(li.length).to.be.equal(3);
+    ReactTestUtils.Simulate.click(button);
+    const lis = ReactTestUtils.scryRenderedDOMComponentsWithTag(app, 'li');
+    expect(lis.length).to.be.equal(7);
+  });
+
+  it('should support state update with pure HTML wrapping', () => {
+    const App = React.createClass({
+      getInitialState() {
+        return {
+          values: [1, 2, 3, 4, 5, 6],
+        };
+      },
+      update() {
+        this.setState({ values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] });
+      },
+      render() {
+        return (
+          <div>
+            <button type="button" onClick={this.update}>click</button>
+            <ul>
+              {this.state.values.map(value => (
+                <Conditional key={value} condition={value % 2 === 0}>
+                  <li id="cell-{value}">{value}</li>
+                </Conditional>
+              ))}
             </ul>
           </div>
         );
