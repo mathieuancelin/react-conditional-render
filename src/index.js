@@ -38,7 +38,7 @@ export const Conditional = React.createClass({
   },
 });
 
-export default function enhanceWithConditionalRendering(Component) {
+export function withConditionalRendering(Component) {
   counter = counter + 1;
   let displayName = `ConditionalRenderingComponent-${counter}`;
   if (Component.prototype
@@ -71,5 +71,3 @@ export default function enhanceWithConditionalRendering(Component) {
     },
   });
 }
-
-export const withConditionalRendering = enhanceWithConditionalRendering;
