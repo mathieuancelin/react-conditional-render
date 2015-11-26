@@ -1,6 +1,6 @@
 /* eslint no-unused-vars:0, no-undef:0, no-unused-expressions:0, react/no-multi-comp: 0, new-cap: 0 */
 
-import EnhanceWithCR, { Conditional, withConditionalRendering } from '../src/index';
+import { Conditional, withConditionalRendering } from '../src/index';
 import React from 'react';
 import chai, {expect} from 'chai';
 import ReactTestUtils from 'react-addons-test-utils';
