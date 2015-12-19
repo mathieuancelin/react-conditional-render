@@ -47,7 +47,7 @@ export function withConditionalRendering(Component) {
     displayName = `${Component.prototype.constructor.displayName}_Wrapper`;
   }
   return React.createClass({
-    displayName: displayName,
+    displayName,
     propTypes: {
       condition: React.PropTypes.any,
     },

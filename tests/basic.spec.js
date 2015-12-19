@@ -2,7 +2,7 @@
 
 import { Conditional, withConditionalRendering } from '../src/index';
 import React from 'react';
-import chai, {expect} from 'chai';
+import chai, { expect } from 'chai';
 import ReactTestUtils from 'react-addons-test-utils';
 
 const Cell = withConditionalRendering(React.createClass({
