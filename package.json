@@ -1,6 +1,6 @@
 {
   "name": "react-conditional-render",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Library to create higher order React component with built-in conditional rendering",
   "main": "lib/index.js",
   "jsnext:main": "src/index.js",
